@@ -15,18 +15,18 @@ services:
       - phyto-network
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
     volumes:
-      - ./frontend/src:/app/src
-      - ./frontend/index.ts:/app/index.ts
-      - ./frontend/package.json:/app/package.json
-      - ./frontend/public:/app/public
+      - ./frontend:/app       
+      - /app/node_modules              
     ports:
       - "5173:5173"
     stdin_open: true
     tty: true
     networks:
       - phyto-network
+
 
   db:
     image: postgres:15
@@ -62,6 +62,6 @@ volumes:
   pgdata:
   pgadmin-data:
 
-networks:
+networks: 
   phyto-network:
-    driver: bridge
+    driver: bridge 

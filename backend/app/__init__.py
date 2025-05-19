@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
@@ -10,10 +10,11 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@db:5432/phytodb'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
+
     @app.route('/')
     def hello():
         return jsonify(message="Hello from Flask!")
-        
+
     from .routes import main
     app.register_blueprint(main)
 

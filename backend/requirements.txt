@@ -3,3 +3,8 @@ Flask-Cors
 Flask-SQLAlchemy
 psycopg2-binary
 flask_migrate
+flasgger  
+marshmallow
+marshmallow-sqlalchemy
+Werkzeug   
+PyJWT==2.8.0
